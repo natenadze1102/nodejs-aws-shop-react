@@ -1,38 +1,46 @@
-# React-shop-cloudfront
+### 1. Link to Task
 
-This is frontend starter project for nodejs-aws mentoring program. It uses the following technologies:
+https://github.com/natenadze1102/nodejs-aws-shop-react
 
-- [Vite](https://vitejs.dev/) as a project bundler
-- [React](https://beta.reactjs.org/) as a frontend framework
-- [React-router-dom](https://reactrouterdotcom.fly.dev/) as a routing library
-- [MUI](https://mui.com/) as a UI framework
-- [React-query](https://react-query-v3.tanstack.com/) as a data fetching library
-- [Formik](https://formik.org/) as a form library
-- [Yup](https://github.com/jquense/yup) as a validation schema
-- [Vitest](https://vitest.dev/) as a test runner
-- [MSW](https://mswjs.io/) as an API mocking library
-- [Eslint](https://eslint.org/) as a code linting tool
-- [Prettier](https://prettier.io/) as a code formatting tool
-- [TypeScript](https://www.typescriptlang.org/) as a type checking tool
+**2. Screenshot**
+<img width="1512" alt="image" src="https://github.com/user-attachments/assets/11c3a0c5-bd28-4ea7-86dc-46a32a14806b" />
 
-## Available Scripts
+**3.Deploy**
+https://dity7u4qnav41.cloudfront.net
+• Opens the React Shop application. You can see the app at /, /cart, etc.
 
-### `start`
+\*\*3.1 Link to S3 bucket
+https://sdkinfrastackv2-task2bucket780f9f95-j4jkn9vu78no.s3.eu-central-1.amazonaws.com/
 
-Starts the project in dev mode with mocked API on local environment.
+### 4. Date of Completion / Deadline
 
-### `build`
+• Done: 2025-02-15 21:30
+• Deadline: 2025-02-15 23:00
 
-Builds the project for production in `dist` folder.
+**5. Self-Check with Preliminary Score**
 
-### `preview`
+Manual Deployment:
+• +30 points – S3 bucket was manually created and config’d. The app is manually uploaded and accessible.
+• +40 points – CloudFront distribution configured. The site is now served via CloudFront URL. S3 bucket returns 403.
+Subtotal so far: 70 points
 
-Starts the project in production mode on local environment.
+Automated Deployment:
+• +30 points –
+• Added CDK scripts (npm run deploy & npm run destroy).
+• The S3 bucket & CloudFront distribution are created automatically.
+• On deploy, the site is automatically uploaded and invalidation is created.
+Subtotal for automated: 30 points
 
-### `test`, `test:ui`, `test:coverage`
+Total: 70 + 30 = 100 points (all requirements done)
 
-Runs tests in console, in browser or with coverage.
-
-### `lint`, `prettier`
-
-Runs linting and formatting for all files in `src` folder.
+6. What Has Been Done?
+   • Manual S3 bucket creation & upload. Verified index.html & minor UI changes.
+   • Manual CloudFront distribution creation. Confirmed 403 from S3 and valid 200 OK from CloudFront.
+   • CDK setup:
+   • Created a sdk-infra folder with cdk init --language typescript.
+   • Wrote a stack that:
+   1. Creates a private S3 bucket (or public, as needed)
+   2. Configures a CloudFront distribution with OAI.
+   3. Uses BucketDeployment to automatically upload dist/ on npm run deploy.
+   4. Invokes CloudFront invalidation automatically.
+      • Verified that cdk destroy cleans up everything.
