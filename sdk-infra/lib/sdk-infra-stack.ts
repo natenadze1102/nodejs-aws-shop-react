@@ -46,6 +46,19 @@ export class SdkInfraStack extends Stack {
         }),
       },
       defaultRootObject: 'index.html',
+
+      errorResponses: [
+        {
+          httpStatus: 403,
+          responseHttpStatus: 200,
+          responsePagePath: '/index.html',
+        },
+        {
+          httpStatus: 404,
+          responseHttpStatus: 200,
+          responsePagePath: '/index.html',
+        },
+      ],
     });
 
     // 5. Deploy the contents of the "dist" folder from your React build to the S3 bucket
